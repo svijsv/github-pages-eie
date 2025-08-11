@@ -44,7 +44,7 @@ Recommended material:
   * A USB hub, preferably with an ethernet port but the installation image
     contains the correct wifi drivers so that's not required any more
 
-## Prepare the Boot Drive
+### Prepare the Boot Drive
 In order to work correctly, the boot drive needs two partitions:
   * An EFI system partition
   * A boot partition

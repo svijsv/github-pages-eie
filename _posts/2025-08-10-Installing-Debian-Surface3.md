@@ -44,7 +44,7 @@ Recommended material:
   * A USB hub, preferably with an ethernet port but the installation image
     contains the correct wifi drivers so that's not required any more
 
-#### Prepare the Boot Drive
+## Prepare the Boot Drive
 In order to work correctly, the boot drive needs two partitions:
   * An EFI system partition
   * A boot partition
@@ -66,7 +66,7 @@ two at the end of these instructions (one installed by default plus the
 linux-surface kernel) so 512MB is probably as low as you want to go but 1GB
 is better.
 
-#### Disable Secure Boot
+### Disable Secure Boot
 This one is pretty easy - with the device off, hold `volume up` then press the
 `power` button and wait for it to boot into the UEFI menu. Secure Boot can be
 disabled there.
@@ -74,19 +74,19 @@ disabled there.
 The boot order may also need to be changed so that the USB drive boots before
 the SSD.
 
-#### Install Debian
+### Install Debian
 The process here is pretty straightforward - follow the [installation instructions](https://www.debian.org/releases/stable/amd64/index).
 
 When it comes time to partition, select manual partitioning.
 
-###### USB Hub Method
+#### USB Hub Method
 Select your boot partition as `/boot` and the EFI partition created before as
 the `EFI System Partition`.
 
 Complete the installation as normal, and skip to [Finish the Installation](#finish-the-installation)
 after rebooting.
 
-###### No USB Hub Method
+#### No USB Hub Method
 For this method you'll need either another computer that can read both the SD
 card and boot drive or a liveusb that can be loaded into RAM like [SystemRescueCD](https://www.system-rescue.org/).
 
@@ -188,12 +188,12 @@ commands that set the root to point to the new `/boot`.
 Once booted, run `update-grub` to regenerate `/boot/grub/grub.cfg` to remove the
 GRUB error.
 
-#### Finish the Installation
+### Finish the Installation
 To be really done, we need to:
   1. Prevent `/boot` from automounting so we can remove the USB drive
   2. Install the linux-surface kernel for better hardware support
 
-###### Prevent /boot from Automounting
+#### Prevent /boot from Automounting
 Edit the `/boot` and `/boot/efi` entries in `/etc/fstab` to add the `noauto` option:
 ```
 # We had this:
@@ -216,7 +216,7 @@ update-initramfs -c -k <latest-kernel-version>
 update-grub
 ```
 
-###### Install the linux-surface kernel
+#### Install the linux-surface kernel
 The [linux-surface kernel](https://github.com/linux-surface/linux-surface) is
 a branch of the Linux kernel with additional drivers and fixes for Surface
 devices. Instructions for installation can be found [here](https://github.com/linux-surface/linux-surface/wiki/Installation-and-Setup#Debian--Ubuntu).

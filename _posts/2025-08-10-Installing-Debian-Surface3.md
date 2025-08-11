@@ -2,6 +2,7 @@
 title: "Installing Debian Linux on a Surface 3 with Bad eMMC"
 date: 2025-08-08
 ---
+# Installing Debian Linux on a Surface 3 with Bad eMMC
 
 ## The Problem
 
